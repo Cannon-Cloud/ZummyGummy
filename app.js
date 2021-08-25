@@ -11,6 +11,7 @@ const mongodbconnect = process.env.MONGO_URL;
 
 //Router Imports
 const categoriesRouter = require('./routes/categories');
+const productsRouter = require('./routes/products');
 
 app.use(cors());
 app.options('*', cors());
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 
 //Routers
 app.use(`${api}/categories`, categoriesRouter);
+app.use(`${api}/products`, productsRouter);
 
 //Connect to DB
 mongoose

@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   res.status(200).send(categoryList);
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const category = await Category.findById(req.params.id);
 
   if (!category) {
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
   res.send(category);
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const category = await Category.findByIdAndUpdate(
     req.params.id,
     {
