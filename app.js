@@ -9,11 +9,20 @@ const app = express();
 const api = process.env.API_URL;
 const mongodbconnect = process.env.MONGO_URL;
 
+//Router Imports
+const categoriesRouter = require('./routes/categories');
+
 app.use(cors());
 app.options('*', cors());
 
-//Connect to DB
+//Middleware
+app.use(express.json());
+app.use(morgan('dev'));
 
+//Routers
+app.use(`${api}/categories`, categoriesRouter);
+
+//Connect to DB
 mongoose
   .connect(mongodbconnect, {
     useNewUrlParser: true,

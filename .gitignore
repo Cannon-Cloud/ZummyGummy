@@ -119,4 +119,4 @@ dist
 .pnp.*
 
 # Public Uploads
-my-uploads/
+uploads/
