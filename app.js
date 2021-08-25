@@ -21,6 +21,7 @@ app.options('*', cors());
 //Middleware
 app.use(express.json());
 app.use(morgan('dev'));
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
 //Routers
 app.use(`${api}/categories`, categoriesRouter);
