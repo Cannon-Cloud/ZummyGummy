@@ -12,6 +12,8 @@ const mongodbconnect = process.env.MONGO_URL;
 //Router Imports
 const categoriesRouter = require('./routes/categories');
 const productsRouter = require('./routes/products');
+const ordersRouter = require('./routes/orders');
+const usersRouter = require('./routes/users');
 
 app.use(cors());
 app.options('*', cors());
@@ -23,6 +25,8 @@ app.use(morgan('dev'));
 //Routers
 app.use(`${api}/categories`, categoriesRouter);
 app.use(`${api}/products`, productsRouter);
+app.use(`${api}/orders`, ordersRouter);
+app.use(`{api}/users`, usersRouter);
 
 //Connect to DB
 mongoose
